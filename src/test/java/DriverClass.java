@@ -14,12 +14,17 @@ import java.time.Duration;
 public class DriverClass {
 
     public WebDriver driver = launchWebDriver();
+
+    public DriverClass() throws InterruptedException {
+    }
+
     @BeforeClass
-    public WebDriver launchWebDriver() {
+    public WebDriver launchWebDriver() throws InterruptedException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
-        driver.navigate().to("https://courses.ultimateqa.com/users/sign_in");
+        driver.navigate().to("https://magento.softwaretestingboard.com");
         driver.manage().window().maximize();
+        Thread.sleep(4000);
         return driver;
     }
 }
