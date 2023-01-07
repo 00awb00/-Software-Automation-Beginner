@@ -1,3 +1,4 @@
+import org.junit.validator.ValidateWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,15 +8,44 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 import org.openqa.selenium.support.ui.Select;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Objects;
+import java.util.Properties;
 
 
 public class Cases extends DriverClass {
 
+
     Actions action = new Actions(driver);
 
-    public Cases() throws InterruptedException {
+    public Cases() throws InterruptedException, FileNotFoundException {
+
+
+    }
+
+//    public Cases() throws InterruptedException, FileNotFoundException {
+//        super();
+//    }
+//
+//    static FileInputStream fs;
+//
+//    static {
+//        try {
+//            fs = new FileInputStream("D:/Software Automation/Mid/config.properties");
+//            prop.load(fs);
+//        } catch (IOException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+
+    @Test(priority = 10)
+    public void newfn() throws InterruptedException {
+        driver.findElement(By.name("user-name")).sendKeys("Hello");
+        Thread.sleep(4000);
+
     }
 
     @Test(priority = 1, description = "Step 1")
@@ -52,6 +82,7 @@ public class Cases extends DriverClass {
         driver.findElement(By.id("top-cart-btn-checkout")).click();
         Thread.sleep(6000);
     }
+
     @Test(priority = 5, description = "Step 5")
     public void form() throws InterruptedException {
         driver.findElement(By.name("username")).click();
@@ -77,6 +108,7 @@ public class Cases extends DriverClass {
         driver.findElement(By.xpath("//button[@type='submit']")).click();
         Thread.sleep(4000);
     }
+
     @Test(priority = 6, description = "Step 6")
     public void confirmation() {
         driver.findElement(By.xpath("//button[@type='submit']")).click();

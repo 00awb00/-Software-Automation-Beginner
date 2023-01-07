@@ -1,7 +1,9 @@
 import org.testng.annotations.Test;
 
+import java.io.FileNotFoundException;
+
 public class Run {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         Cases obj1 = new Cases();
         obj1.Men();
         obj1.selectproduct("//*[@id=\"maincontent\"]/div[3]/div[1]/div[3]/ol/li[2]/div/a/span/span/img",
@@ -11,5 +13,6 @@ public class Run {
         obj1.billing();
         obj1.form();
         obj1.confirmation();
+        // obj1.newfn();
     }
 }
